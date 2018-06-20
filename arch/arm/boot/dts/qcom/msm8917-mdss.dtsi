@@ -41,10 +41,16 @@
 /delete-node/ &mdss_dsi1;
 
 &mdss_mdp {
-	qcom,max-bandwidth-low-kbps = <6400000>;
-	qcom,max-bandwidth-high-kbps = <6400000>;
-	qcom,max-bandwidth-per-pipe-kbps = <2400000>;
+	qcom,max-bandwidth-low-kbps = <4100000>;
+	qcom,max-bandwidth-high-kbps = <4100000>;
+	qcom,max-bandwidth-per-pipe-kbps = <2600000>;
 
+
+	/* Bandwidth limit settings */
+	qcom,max-bw-settings = <1 4100000>,	/* Default */
+			       <2 2100000>;	/* Camera */
+
+	qcom,max-clk-rate = <380000000>;
 	qcom,mdss-intf-off = <0x00000000 0x0006B800>;
 	qcom,mdss-pingpong-off = <0x00071000>;
 	qcom,mdss-mixer-intf-off = <0x00045000>;
