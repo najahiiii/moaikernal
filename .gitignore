@@ -34,6 +34,8 @@
 *.gcno
 *.ll
 build.sh
+gcc.sh
+dtc.sh
 modules.builtin
 Module.symvers
 *.dwo
