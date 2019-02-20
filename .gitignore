@@ -36,6 +36,7 @@
 build.sh
 gcc.sh
 dtc.sh
+linaro.sh
 modules.builtin
 Module.symvers
 *.dwo
@@ -46,6 +47,7 @@ Module.symvers
 /out
 /dapur
 /gcc
+/lin
 /dragontc
 /anykernel
 /tags
