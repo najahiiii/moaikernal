@@ -48,7 +48,7 @@
 #include "msm8x16_wcd_registers.h"
 
 #define MSM8X16_WCD_RATES (SNDRV_PCM_RATE_8000 | SNDRV_PCM_RATE_16000 |\
-			SNDRV_PCM_RATE_32000 | SNDRV_PCM_RATE_48000 | SNDRV_PCM_RATE_96000)
+			SNDRV_PCM_RATE_32000 | SNDRV_PCM_RATE_48000)
 #define MSM8X16_WCD_FORMATS (SNDRV_PCM_FMTBIT_S16_LE |\
 		SNDRV_PCM_FMTBIT_S24_LE |\
 		SNDRV_PCM_FMTBIT_S24_3LE |\
@@ -103,12 +103,12 @@ enum {
 
 #define MICBIAS_DEFAULT_VAL 2400000
 #define MICBIAS_MIN_VAL 1600000
-#define MICBIAS_STEP_SIZE 15000
+#define MICBIAS_STEP_SIZE 50000
 
-#define DEFAULT_BOOST_VOLTAGE 5400
+#define DEFAULT_BOOST_VOLTAGE 5250
 #define MIN_BOOST_VOLTAGE 4700
 #define MAX_BOOST_VOLTAGE 5550
-#define BOOST_VOLTAGE_STEP 15
+#define BOOST_VOLTAGE_STEP 50
 
 #define MSM8X16_WCD_MBHC_BTN_COARSE_ADJ  50 /* in mV */
 #define MSM8X16_WCD_MBHC_BTN_FINE_ADJ 10 /* in mV */
@@ -4911,7 +4911,7 @@ static struct snd_soc_dai_driver msm8x16_wcd_i2s_dai[] = {
 			.stream_name = "VIfeed",
 			.rates = MSM8X16_WCD_RATES,
 			.formats = MSM8X16_WCD_FORMATS,
-			.rate_max = 96000,
+			.rate_max = 48000,
 			.rate_min = 48000,
 			.channels_min = 2,
 			.channels_max = 2,
@@ -6552,3 +6552,4 @@ module_exit(msm8x16_wcd_codec_exit);
 MODULE_DESCRIPTION("MSM8x16 Audio codec driver");
 MODULE_LICENSE("GPL v2");
 MODULE_DEVICE_TABLE(of, msm8x16_wcd_spmi_id_table);
+

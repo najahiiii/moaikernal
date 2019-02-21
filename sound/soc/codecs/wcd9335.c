@@ -4986,7 +4986,7 @@ static int tasha_codec_enable_spline_src(struct snd_soc_codec *codec,
 	u16 rx_path_cfg_reg;
 	u16 rx_path_ctl_reg;
 	u16 src_clk_reg;
-	u16 src_paired_reg = 0;
+	u16 src_paired_reg;
 	int *src_users, count, spl_src;
 	struct tasha_priv *tasha;
 
