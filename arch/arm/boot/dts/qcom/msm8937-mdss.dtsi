@@ -47,8 +47,8 @@
 						<0xff00>;
 
 		qcom,mdss-mdp-reg-offset = <0x00001000>;
-		qcom,max-bandwidth-low-kbps = <3600000>;
-		qcom,max-bandwidth-high-kbps = <3600000>;
+		qcom,max-bandwidth-low-kbps = <6400000>;
+		qcom,max-bandwidth-high-kbps = <6400000>;
 		qcom,max-bandwidth-per-pipe-kbps = <2400000>;
 
 		/* Bandwidth limit settings */
