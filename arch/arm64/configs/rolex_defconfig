@@ -1,6 +1,6 @@
 #
 # Automatically generated file; DO NOT EDIT.
-# Linux/arm64 3.18.135 Kernel Configuration
+# Linux/arm64 3.18.136 Kernel Configuration
 #
 CONFIG_ARM64=y
 CONFIG_64BIT=y
@@ -207,7 +207,7 @@ CONFIG_COMPAT_BRK=y
 CONFIG_SLUB=y
 # CONFIG_SLOB is not set
 CONFIG_SLUB_CPU_PARTIAL=y
-CONFIG_SYSTEM_TRUSTED_KEYRING=y
+# CONFIG_SYSTEM_TRUSTED_KEYRING is not set
 CONFIG_PROFILING=y
 CONFIG_TRACEPOINTS=y
 # CONFIG_JUMP_LABEL is not set
