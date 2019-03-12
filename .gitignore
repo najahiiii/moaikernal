@@ -37,6 +37,7 @@ build.sh
 gcc.sh
 dtc.sh
 linaro.sh
+stable.sh
 modules.builtin
 Module.symvers
 *.dwo
