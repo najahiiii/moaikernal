@@ -138,21 +138,6 @@ config CPU_FREQ_DEFAULT_GOV_SCHED
 	  cpu frequency using CPU utilization estimates from the
 	  scheduler.
 
-config CPU_FREQ_DEFAULT_GOV_CAFACTIVE
-	bool "cafactive"
-	select CPU_FREQ_GOV_CAFACTIVE
-	help
-	  Use the CPUFreq governor 'cafactive' as default. This allows
-	  you to get a full dynamic cpu frequency capable system by simply
-	  loading your cpufreq low-level hardware driver, using the
-	  'cafactive' governor for latency-sensitive workloads.
-
-config CPU_FREQ_DEFAULT_GOV_PEGASUSQ
-	bool "pegasusq"
-	select CPU_FREQ_GOV_PEGASUSQ
-	help
-	  Use the CPUFreq governor 'pegasusq' as default.
-
 config CPU_FREQ_DEFAULT_GOV_IRONACTIVE
 	bool "ironactive"
 	select CPU_FREQ_GOV_IRONACTIVE
@@ -288,17 +273,6 @@ config CPU_FREQ_GOV_SCHED
 
 	  If in doubt, say N.
 
-config CPU_FREQ_GOV_CAFACTIVE
-	tristate "'cafactive' cpufreq policy governor"
-	help
-	  'cafactive' - CodeAurora(Qualcomm) version of interactive
-	  cpufreq policy governor.
-
-	  To compile this driver as a module, choose M here: the
-	  module will be called cpufreq_cafactive.
-          
-          If in doubt, say N.
-
 config CPU_FREQ_GOV_IRONACTIVE
 	tristate "'ironactive' cpufreq policy governor"
 	help
@@ -315,9 +289,6 @@ config CPU_FREQ_GOV_IRONACTIVE
 	  module will be called cpufreq_ironactive.
 
 	  If in doubt, say N.
-
-config CPU_FREQ_GOV_PEGASUSQ
-	tristate "'pegasusq' cpufreq policy governor"
 
 config CPU_FREQ_GOV_INTERACTIVEX
 	tristate "'interactivex' cpufreq governor"
