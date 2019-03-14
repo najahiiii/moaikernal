@@ -2231,7 +2231,7 @@ static void fg_batt_avg_update(struct fg_chip *chip)
 
 	if (chip->charge_status == POWER_SUPPLY_STATUS_CHARGING ||
 			chip->charge_status == POWER_SUPPLY_STATUS_DISCHARGING)
-		schedule_delayed_work(&chip->batt_avg_work,
+		queue_delayed_work(system_power_efficient_wq, &chip->batt_avg_work,
 							msecs_to_jiffies(2000));
 }
 
@@ -2883,7 +2883,7 @@ static void sram_dump_work(struct work_struct *work)
 	fg_dbg(chip, FG_STATUS, "SRAM Dump done at %lld.%d\n",
 		quotient, remainder);
 resched:
-	schedule_delayed_work(&chip->sram_dump_work,
+	queue_delayed_work(system_power_efficient_wq, &chip->sram_dump_work,
 			msecs_to_jiffies(fg_sram_dump_period_ms));
 }
 
@@ -2911,7 +2911,7 @@ static int fg_sram_dump_sysfs(const char *val, const struct kernel_param *kp)
 
 	chip = power_supply_get_drvdata(bms_psy);
 	if (fg_sram_dump)
-		schedule_delayed_work(&chip->sram_dump_work,
+		queue_delayed_work(system_power_efficient_wq, &chip->sram_dump_work,
 				msecs_to_jiffies(fg_sram_dump_period_ms));
 	else
 		cancel_delayed_work_sync(&chip->sram_dump_work);
@@ -2992,7 +2992,7 @@ static void batt_avg_work(struct work_struct *work)
 
 reschedule:
 	mutex_unlock(&chip->batt_avg_lock);
-	schedule_delayed_work(&chip->batt_avg_work,
+	queue_delayed_work(system_power_efficient_wq, &chip->batt_avg_work,
 			      msecs_to_jiffies(BATT_AVG_POLL_PERIOD_MS));
 }
 

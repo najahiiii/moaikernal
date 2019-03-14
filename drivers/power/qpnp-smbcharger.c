@@ -5089,7 +5089,7 @@ static void smbchg_monitor_charging_temp_5_work(struct work_struct *work)
 
 	smbchg_factory_mode_controlled_by_capacity(chip);
 
-	schedule_delayed_work(&chip->monitor_charging_temp_5_work, msecs_to_jiffies(MONITOR_PERIOD));
+	queue_delayed_work(system_power_efficient_wq, &chip->monitor_charging_temp_5_work, msecs_to_jiffies(MONITOR_PERIOD));
 
 }
 

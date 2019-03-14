@@ -1393,7 +1393,7 @@ static void __ufshcd_release(struct ufs_hba *hba, bool no_sched)
 	hba->clk_gating.state = REQ_CLKS_OFF;
 	trace_ufshcd_clk_gating(dev_name(hba->dev), hba->clk_gating.state);
 
-	schedule_delayed_work(&hba->clk_gating.gate_work,
+	queue_delayed_work(system_power_efficient_wq, &hba->clk_gating.gate_work,
 			      msecs_to_jiffies(hba->clk_gating.delay_ms));
 }
 
@@ -1726,7 +1726,7 @@ static void __ufshcd_hibern8_release(struct ufs_hba *hba, bool no_sched)
 	if (delay_in_jiffies == 1)
 		delay_in_jiffies++;
 
-	schedule_delayed_work(&hba->hibern8_on_idle.enter_work,
+	queue_delayed_work(system_power_efficient_wq, &hba->hibern8_on_idle.enter_work,
 			      delay_in_jiffies);
 }
 
