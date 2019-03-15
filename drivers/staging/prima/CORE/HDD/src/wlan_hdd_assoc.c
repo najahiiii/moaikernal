@@ -1623,7 +1623,7 @@ static void hdd_check_and_move_if_sap_is_on_dfs_chan(hdd_context_t *hdd_ctx,
         }
 
         hddLog(LOG1, "Schedule workqueue to move the SAP to non DFS channel");
-        schedule_delayed_work(&hdd_ctx->ecsa_chan_change_work,
+        queue_delayed_work(system_power_efficient_wq, &hdd_ctx->ecsa_chan_change_work,
                             msecs_to_jiffies(ECSA_DFS_CHAN_CHANGE_DEFER_TIME));
     }
 }
@@ -2257,7 +2257,7 @@ hdd_schedule_ecsa_chan_change_work(hdd_context_t *hdd_ctx,
        time_diff = ECSA_SCC_CHAN_CHANGE_DEFER_INTERVAL - time_diff;
 
    hddLog(LOG1, FL("schedule ecsa_chan_change_work after %d ms"), time_diff);
-   schedule_delayed_work(&hdd_ctx->ecsa_chan_change_work,
+   queue_delayed_work(system_power_efficient_wq, &hdd_ctx->ecsa_chan_change_work,
                           msecs_to_jiffies(time_diff));
 }
 
