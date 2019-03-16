@@ -1,3 +1,5 @@
+Semaphore CI Status : [![Build Status](https://semaphoreci.com/api/v1/najahiiii/moaikernal/branches/lineage-16-0/badge.svg)](https://semaphoreci.com/najahiiii/moaikernal)
+
         Linux kernel release 3.x <http://kernel.org/>
 
 These are the release notes for Linux version 3.  Read them carefully,
