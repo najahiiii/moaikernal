@@ -36,6 +36,7 @@
 modules.builtin
 Module.symvers
 *.dwo
+secret.yml
 
 #
 # Top-level generic files
