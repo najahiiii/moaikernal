@@ -494,9 +494,9 @@ void hdd_copy_ht_caps(struct ieee80211_ht_cap *hdd_ht_cap,
             ANTENNA_SEL_INFO_TX_SOUNDING_PPDU;
 
     /* mcs data rate */
-    for (i = 0; i < IEEE80211_HT_MCS_MASK_LEN; ++i){
+    for (i = 0; i < IEEE80211_HT_MCS_MASK_LEN; ++i)
         hdd_ht_cap->mcs.rx_mask[i] =
-            roam_ht_cap->supportedMCSSet[i];}
+            roam_ht_cap->supportedMCSSet[i];
 
         hdd_ht_cap->mcs.rx_highest =
             ((short) (roam_ht_cap->supportedMCSSet[11]) << 8) |
@@ -1623,7 +1623,7 @@ static void hdd_check_and_move_if_sap_is_on_dfs_chan(hdd_context_t *hdd_ctx,
         }
 
         hddLog(LOG1, "Schedule workqueue to move the SAP to non DFS channel");
-        queue_delayed_work(system_power_efficient_wq, &hdd_ctx->ecsa_chan_change_work,
+        schedule_delayed_work(&hdd_ctx->ecsa_chan_change_work,
                             msecs_to_jiffies(ECSA_DFS_CHAN_CHANGE_DEFER_TIME));
     }
 }
@@ -2257,7 +2257,7 @@ hdd_schedule_ecsa_chan_change_work(hdd_context_t *hdd_ctx,
        time_diff = ECSA_SCC_CHAN_CHANGE_DEFER_INTERVAL - time_diff;
 
    hddLog(LOG1, FL("schedule ecsa_chan_change_work after %d ms"), time_diff);
-   queue_delayed_work(system_power_efficient_wq, &hdd_ctx->ecsa_chan_change_work,
+   schedule_delayed_work(&hdd_ctx->ecsa_chan_change_work,
                           msecs_to_jiffies(time_diff));
 }
 
