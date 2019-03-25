@@ -46,3 +46,5 @@ obj-$(CONFIG_GS_FPGABOOT)	+= gs_fpgaboot/
 obj-$(CONFIG_CRYPTO_SKEIN)	+= skein/
 obj-$(CONFIG_UNISYSSPAR)	+= unisys/
 obj-$(CONFIG_PRONTO_WLAN)	+= prima/
+
+CFLAGS_prima := $(call cc-disable-warning, enum-conversion)
