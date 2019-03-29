@@ -721,9 +721,9 @@ int kgsl_busmon_target(struct device *dev, unsigned long *freq, u32 flags)
 	}
 
 	b = pwr->bus_mod;
-	if (_check_fast_hint(bus_flag))
+	if ((bus_flag & DEVFREQ_FLAG_FAST_HINT))
 		pwr->bus_mod++;
-	else if (_check_slow_hint(bus_flag))
+	else if ((bus_flag & DEVFREQ_FLAG_SLOW_HINT))
 		pwr->bus_mod--;
 
 	/* trim calculated change to fit range */
