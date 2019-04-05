@@ -83,7 +83,7 @@ int fb_deferred_io_fsync(struct file *file, loff_t start, loff_t end, int datasy
 	cancel_delayed_work_sync(&info->deferred_work);
 
 	/* Run it immediately */
-	queue_delayed_work(system_power_efficient_wq, &info->deferred_work, 0);
+	schedule_delayed_work(&info->deferred_work, 0);
 	mutex_unlock(&inode->i_mutex);
 
 	return 0;
@@ -144,7 +144,7 @@ page_already_added:
 	mutex_unlock(&fbdefio->lock);
 
 	/* come back after delay to process the deferred IO */
-	queue_delayed_work(system_power_efficient_wq, &info->deferred_work, fbdefio->delay);
+	schedule_delayed_work(&info->deferred_work, fbdefio->delay);
 	return VM_FAULT_LOCKED;
 }
 
