@@ -1,0 +1,16 @@
+version: 2
+jobs:
+  compile:
+    docker:
+      - image: circleci/buildpack-deps:bionic
+    steps:
+      - run: sudo apt install -qq bc zip make automake autogen autoconf autotools-dev libtool shtool python m4 gcc clang libtool zlib1g-dev libstdc++6
+      - checkout
+      - run: wget https://raw.githubusercontent.com/najahiiii/Noob-Script/noob/circle-google
+      - run: chmod +x circle-google
+      - run: bash circle-google
+workflows:
+  version: 2
+  cooking:
+    jobs:
+      - compile
