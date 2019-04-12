@@ -2479,7 +2479,36 @@ static void smb358_external_power_changed(struct power_supply *psy)
 		dev_err(chip->dev,
 			"Couldn't read USB current_max property, rc=%d\n", rc);
 	else
-		current_limit = prop.intval / 1000;
+        #ifdef CONFIG_QUICK_CHARGE
+        {
+           if (!((prop.intval / 1000) == 0))
+           {
+	      if (QC_Toggle == 1) 
+	      {
+		 // If Current (mA) is Equal to 500 mA, then USB is Connected.
+                 if ((prop.intval / 1000) == 500) 
+		 {
+		    // Raise USB-Charging Current (mA) to 1000 mA (Maximum Supported).
+                    pr_info("Using Custom USB Current (mA) %d", 1000);
+                    current_limit = 1000;
+                 }
+                 else 
+	         {
+                     pr_info("Using Quick Charge Current (mA) %d", Dynamic_Current);
+                     current_limit = Dynamic_Current;
+                 }
+              }
+              else
+		  // If Quick Charge is Disabled, Restore Default Value of Current (mA). 
+                  current_limit = prop.intval / 1000;
+           }
+	   else
+	       current_limit = 0;
+	}
+	#else
+	    // If Quick Charge is Not Compiled, Leave Current (mA) Value Untouched.
+	    current_limit = prop.intval / 1000;
+	#endif
 
 	chip->psy_usb_ma = current_limit;
 	smb358_enable_volatile_writes(chip);
