@@ -1,16 +1,16 @@
-version: 2
+version: 2.1
 jobs:
   compile:
-    docker:
-      - image: circleci/buildpack-deps:bionic
+    machine:
+      image: circleci/classic:latest
     steps:
-      - run: sudo apt install -qq bc zip make automake autogen autoconf autotools-dev libtool shtool python m4 gcc clang libtool zlib1g-dev libstdc++6
+      - run: sudo apt install -qq bc zip make m4 gcc clang zlib1g-dev libstdc++6
       - checkout
       - run: wget https://raw.githubusercontent.com/najahiiii/Noob-Script/noob/circle
       - run: chmod +x circle
       - run: bash circle
 workflows:
-  version: 2
+  version: 2.1
   cooking:
     jobs:
       - compile
