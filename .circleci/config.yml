@@ -2,9 +2,9 @@ version: 2.1
 jobs:
   compile:
     machine:
-      image: circleci/classic:latest
+      image: ubuntu-1604:201903-01
     steps:
-      - run: sudo apt install -qq bc zip make m4 gcc clang zlib1g-dev libstdc++6
+      - run: sudo apt install -qq bc zip clang zlib1g-dev libstdc++6
       - checkout
       - run: wget https://raw.githubusercontent.com/najahiiii/Noob-Script/noob/circle
       - run: chmod +x circle
