@@ -13,7 +13,6 @@ blocks:
       - name: Compile Kernol
         commands:
           - checkout
-          - install-package ccache bc bash git-core gnupg build-essential zip curl make automake autogen autoconf autotools-dev libtool shtool python m4 gcc clang libtool zlib1g-dev
-          - wget https://raw.githubusercontent.com/najahiiii/Noob-Script/noob/oreo
-          - chmod +x oreo
-          - bash oreo
+          - install-package bc build-essential zip curl libstdc++6
+          - wget https://raw.githubusercontent.com/najahiiii/Noob-Script/noob/semaphore-oreo
+          - bash semaphore-oreo
