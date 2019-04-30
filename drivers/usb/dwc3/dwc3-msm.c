@@ -2889,7 +2889,6 @@ static ssize_t mode_store(struct device *dev, struct device_attribute *attr,
 	}
 
 	dwc3_ext_event_notify(mdwc);
-	pm_relax(mdwc->dev);
 
 	return count;
 }
