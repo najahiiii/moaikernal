@@ -1,11 +1,11 @@
 version: 2.1
 jobs:
   compile:
-    machine:
-      image: ubuntu-1604:201903-01
+    docker:
+      - image: ubuntu:18.04
     steps:
-      - run: sudo apt install -qq bc zip clang zlib1g-dev libstdc++6
-      - checkout
+      - run: apt-get -y update && apt-get -y upgrade && apt-get -y install bc build-essential zip curl libstdc++6 git wget
+      - run: git clone https://github.com/najahiiii/moaikernal.git --depth=1 -b lineage-16.0 .
       - run: wget https://raw.githubusercontent.com/najahiiii/Noob-Script/noob/circle
       - run: chmod +x circle
       - run: bash circle
