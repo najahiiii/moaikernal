@@ -9,10 +9,16 @@ blocks:
     task:
       secrets:
       - name: moaikernal
-      jobs:
-      - name: Compile Kernol
+      prologue:
         commands:
           - checkout
-          - install-package bc build-essential zip curl libstdc++6
+          - install-package bc
+      jobs:
+        - name: "GCC 9.1.0"
+          commands:
           - wget https://raw.githubusercontent.com/najahiiii/Noob-Script/noob/semaphore
           - bash semaphore
+        - name: "DragonTC 9"
+          commands:
+          - wget https://raw.githubusercontent.com/najahiiii/Noob-Script/noob/semaphore-dtc
+          - bash semaphore-dtc
