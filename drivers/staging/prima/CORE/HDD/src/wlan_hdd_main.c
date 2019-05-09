@@ -15151,8 +15151,8 @@ v_BOOL_t hdd_is_apps_power_collapse_allowed(hdd_context_t* pHddCtx)
     tANI_BOOLEAN scanRspPending = csrNeighborRoamScanRspPending(pHddCtx->hHal);
     tANI_BOOLEAN inMiddleOfRoaming = csrNeighborMiddleOfRoaming(pHddCtx->hHal);
     hdd_config_t *pConfig = pHddCtx->cfg_ini;
-    hdd_adapter_list_node_t *pAdapterNode = NULL, *pNext = NULL;
-    hdd_adapter_t *pAdapter = NULL;
+    hdd_adapter_list_node_t *pAdapterNode = NULL, *pNext = NULL; 
+    hdd_adapter_t *pAdapter = NULL; 
     VOS_STATUS status;
     tVOS_CONCURRENCY_MODE concurrent_state = 0;
 

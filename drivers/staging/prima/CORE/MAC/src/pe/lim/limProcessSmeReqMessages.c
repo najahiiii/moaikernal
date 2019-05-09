@@ -169,7 +169,7 @@ __limFreshScanReqd(tpAniSirGlobal pMac, tANI_U8 returnFreshResults)
                            (pMac->lim.gpSession[i].limSystemRole == eLIM_BT_AMP_AP_ROLE)||
                            (pMac->lim.gpSession[i].limSystemRole == eLIM_BT_AMP_STA_ROLE) )&&
                        (pMac->lim.gpSession[i].limSmeState == eLIM_SME_NORMAL_STATE) )
-               ||  ( ( ( (pMac->lim.gpSession[i].bssType == eSIR_INFRA_AP_MODE) 
+               ||  ( ( ( (pMac->lim.gpSession[i].bssType == eSIR_INFRA_AP_MODE)
                       && ( pMac->lim.gpSession[i].pePersona == VOS_P2P_GO_MODE) )
                     || (pMac->lim.gpSession[i].limSystemRole == eLIM_AP_ROLE) )
                   && (pMac->lim.gpSession[i].limSmeState == eLIM_SME_NORMAL_STATE) )
@@ -182,8 +182,7 @@ __limFreshScanReqd(tpAniSirGlobal pMac, tANI_U8 returnFreshResults)
                       pMac->lim.gpSession[i].limSystemRole,
                       pMac->lim.gpSession[i].limSmeState);
                 break;
-              }
-
+            }
         }
     }
     limLog(pMac, LOG1, FL("FreshScanReqd: %d "), validState);

@@ -5196,7 +5196,6 @@ limEnableHtRifsProtection(tpAniSirGlobal pMac, tANI_U8 enable,
     if(!psessionEntry->htCapability){
         return eSIR_SUCCESS;} // this protection  is only for HT stations.
 
-
         //overlapping protection configuration check.
         if(overlap)
         {
